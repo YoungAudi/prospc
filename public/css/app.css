@@ -1,0 +1,12 @@
+#background-loading {
+  	position: fixed;
+  	width: 100%;
+  	height: 100%;
+  	z-index: 1000;
+}
+#background-loading .spinner-border {
+	width: 3rem;
+	border: .3em solid currentColor;
+	border-right-color: transparent;
+	height: 3rem;
+}
