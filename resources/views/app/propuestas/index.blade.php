@@ -107,10 +107,10 @@
             			<x-forms.input mb="mb-3" label="Fecha de cotización" placeholder="Fecha cotización" type="date" name="fecha_cotizacion" />
             		</div>
             		<div class="col-12 col-md-6">
-            			<x-forms.select mb="mb-3" label="Evento" :select2="false" placeholder="Evento" name="evento_id" :options="$eventos"/>
+            			<x-forms.select mb="mb-3" label="Evento" :select2="false" placeholder="Selecciona el evento" name="evento_id" :options="$eventos"/>
             		</div>
             		<div class="col-12 col-md-6">
-            			<x-forms.select mb="mb-3" label="Talento" :select2="false" placeholder="Talento" name="talento_id" :options="$talentos"/>
+            			<x-forms.select mb="mb-3" label="Talento" :select2="false" placeholder="Selecciona el talento" name="talento_id" :options="$talentos"/>
             		</div>
             		<div class="col-10">
             			<h3>Necesidades</h3>
