@@ -91,7 +91,7 @@
 			checker = true;
 			modal.show();
 		});
-		TTValidate.init(theForm, {					
+		TTValidate(theForm, {					
 			'name': {
 				validators: {
 					notEmpty: {message: 'Debes de ingresar un nombre.'},

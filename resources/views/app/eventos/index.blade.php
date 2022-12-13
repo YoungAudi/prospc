@@ -117,7 +117,7 @@
 			theFormMethod.value = 'POST';
 			modal.show();
 		});
-		TTValidate.init(theForm, {					
+		TTValidate(theForm, {					
 			'nombre': {
 				validators: {
 					notEmpty: {message: 'Debes de ingresar un nombre.'},

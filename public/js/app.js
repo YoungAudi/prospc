@@ -3364,15 +3364,20 @@ window.TTSelect = function (elSelectChange, elSelectUpdate, elRoute, elId, elVar
   \**********************************/
 /***/ (() => {
 
-window.TTValidate = function () {
-  var form;
-  var submitButton;
+window.TTValidate = function (elForm) {
+  var elRules = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  var elTransformFormData = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+  var elSuccessFunc = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+  var form = elForm;
+  var submitButton = elForm.querySelector("button[type='submit']");
   var validator;
-  var rules;
+  var rules = elRules;
   var transformData = function transformData(formData) {
     return formData;
   };
   var successFunc = function successFunc() {};
+  if (elTransformFormData != null) transformData = elTransformFormData;
+  if (elSuccessFunc != null) successFunc = elSuccessFunc;
   var handleForm = function handleForm(e) {
     submitButton.addEventListener('click', function (e) {
       var rs = document.querySelectorAll('.fv-plugins-message-container');
@@ -3461,20 +3466,8 @@ window.TTValidate = function () {
       });
     });
   };
-  return {
-    init: function init(elForm) {
-      var elRules = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var elTransformFormData = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
-      var elSuccessFunc = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
-      rules = elRules;
-      form = elForm;
-      if (elTransformFormData != null) transformData = elTransformFormData;
-      if (elSuccessFunc != null) successFunc = elSuccessFunc;
-      submitButton = elForm.querySelector("button[type='submit']");
-      handleForm();
-    }
-  };
-}();
+  handleForm();
+};
 
 /***/ }),
 

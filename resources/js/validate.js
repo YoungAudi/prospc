@@ -1,11 +1,14 @@
-window.TTValidate = function() {
-    let form;
-    let submitButton;
+window.TTValidate = function(elForm, elRules = {}, elTransformFormData = null, elSuccessFunc = null) {
+    let form = elForm;
+    let submitButton = elForm.querySelector("button[type='submit']");
     let validator;
-    let rules;
+    let rules = elRules;
     let transformData = (formData) => formData;
     let successFunc = () => {};
-
+    if (elTransformFormData != null)
+        transformData = elTransformFormData;
+    if (elSuccessFunc != null)
+        successFunc = elSuccessFunc;
     let handleForm = function(e) {
         submitButton.addEventListener('click', function (e) {
             let rs = document.querySelectorAll('.fv-plugins-message-container');
@@ -101,16 +104,5 @@ window.TTValidate = function() {
             });
 		});
     }
-    return {
-        init: function(elForm, elRules = {}, elTransformFormData = null, elSuccessFunc = null) {
-            rules = elRules;
-            form = elForm;
-            if (elTransformFormData != null)
-                transformData = elTransformFormData;
-            if (elSuccessFunc != null)
-                successFunc = elSuccessFunc;
-            submitButton = elForm.querySelector("button[type='submit']");
-            handleForm();
-        }
-    };
-}();
+    handleForm();
+};
